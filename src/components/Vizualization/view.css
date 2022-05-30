@@ -1,0 +1,30 @@
+.booksView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.addBookButton {
+    display: flex;
+    justify-self: center;
+    padding: 1rem;
+    font-weight: 500;
+    font-size: 3rem;
+    text-align: center;
+    border: none;
+    background-color: rgba(189, 183, 107, 0.297);
+    color: #122108;
+    margin: 1.5rem;
+    border-radius: 15px;
+    transition: 300ms;
+}
+
+.addBookButton:hover {
+    padding: 1.2rem;
+    background-color: rgba(189, 183, 107, 0.589);
+}
+
+.buttonAddIcon {
+    margin-left: 1rem;
+}
