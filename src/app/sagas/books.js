@@ -6,10 +6,10 @@ const genericImg = 'https://th.bing.com/th/id/R.611e284ee2f1f28206369e7cfa02c6ba
 
 export function* getImageRequest(action) {
     try{
-        const img = yield call(services.getImages, action.books.title);
+        const img = yield call(services.getImages, action.book.title, action.book.author);
         yield put(bookActions.getImageSuccess(action.book, img))
     } catch(err) {
-        console.log(err);
+        console.log(err, 'oi');
         yield put(bookActions.getImageFailure(action.book, genericImg))
     }
 }

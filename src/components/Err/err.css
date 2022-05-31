@@ -1,0 +1,15 @@
+.warning {
+    display: flex;
+    margin: 10rem;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.warning > p {
+    font-size: 3rem;
+    font-weight: 600;
+    padding-left: 1rem;
+    color: #440808;
+}

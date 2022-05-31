@@ -1,22 +1,27 @@
 export const Types = { 
     INSERTION: 'book/INSERTION',
+    UPDATE_BOOK: 'book/UPDATE_BOOK',
     GET_IMAGE_SUCCESS: 'book/GET_IMAGE_SUCCESS',
     GET_IMAGE_FAILURE: 'book/GET_IMAGE_FAILURE'
 }
 
 export const Creators = {
-    insertion: (books) => ({
+    insertion: (book) => ({
         type:  Types.INSERTION,
-        books
+        book
     }),
-    getImageSuccess: (books, img) => ({
+    editBook: (book) => ({
+        type: Types.UPDATE_BOOK,
+        book
+    }),
+    getImageSuccess: (book, img) => ({
         type: Types.GET_IMAGE_SUCCESS,
-        books,
+        book,
         img
     }),
-    getImageFailure: (books, img) => ({
+    getImageFailure: (book, img) => ({
         type: Types.GET_IMAGE_FAILURE,
-        books,
+        book,
         img
     })
 }

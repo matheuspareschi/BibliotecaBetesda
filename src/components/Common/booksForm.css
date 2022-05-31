@@ -1,0 +1,132 @@
+.body {
+    overflow: hidden;
+}
+
+.booksForm {
+    display: flex;
+    font-family: -apple-system, 'Raleway', sans-serif;
+    margin: 2rem 25%;
+    background-color: #bdb76b;
+    border-radius: 25px;
+    padding: 2rem;
+    flex-direction: column;
+    width: 50%;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    background-color: #5c7651d6;
+    padding: 0.7rem 1rem;
+    min-width: 220px;
+    position: absolute;
+    right: 5px;
+    top: 75px;
+    border-radius: 4px;
+    border-left: 8px solid #475b3f;
+    overflow: hidden;
+}
+
+.alert.hide {
+    display: none;
+}
+
+.alert.show {
+    animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide {
+    0% {
+        transform: translateX(100%);
+    }
+    40% {
+        transform: translateX(-10%);
+    }
+    80% {
+        transform: translateX(0%);
+    } 
+    100% {
+        transform: translateX(-10px);
+    }   
+} 
+
+.close-btn {
+    border: none;
+    padding: 0;
+
+}
+
+.check {
+    position:absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.msg {
+    padding-left: 33px;
+    font-weight: 500;
+    color: #c1ddaf;
+    font-size: 1.1rem;
+}
+
+.close {
+    background-color: #5e7754;
+    position:absolute;
+    padding: 0.9rem 0.2rem;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.close:hover {
+    background-color: #465f3f;
+}
+
+.formTitle {
+    text-align: center;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #5b593f;
+}
+
+.inputDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.textForm {
+    margin: 0 1rem;
+}
+
+.inputForm {
+    padding: 0.3rem;
+    border: none;
+    margin: 0.5rem;
+    border-radius: 5px;
+    width: 80%;
+    background-color: rgb(249, 229, 203);
+}
+
+.buttonForm {
+    margin-top: 1rem;
+    width: fit-content;
+    align-self: center;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: 300ms;
+    border: none;
+    font-weight: 700;
+    color: #5b593f;
+    background-color: rgb(249, 229, 203);
+}
+
+.buttonForm:hover {
+    background-color: rgb(250, 217, 174) ;
+    cursor: pointer;
+}

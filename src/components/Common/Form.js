@@ -1,11 +1,9 @@
-import { bindActionCreators } from '@reduxjs/toolkit';
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import {Creators as bookActions} from "../../app/actions/bookActions"
+import { CircleWavyCheck, X } from 'phosphor-react';
+import React, { useEffect, useState } from 'react';
 
 import './booksForm.css'
 
-function Form({insertion}) {
+function Form({action, item = 0}) {
 
     const [book, setBook] = useState({    
         title: '',
@@ -13,6 +11,7 @@ function Form({insertion}) {
         category: '',
         description:'',
     });
+    const [show, setShow] = useState('hide')
 
     function onChangeTitle(e) {
         setBook({...book, title: e.target.value});
@@ -30,9 +29,14 @@ function Form({insertion}) {
         setBook({...book, description: e.target.value});
     }  
 
+    useEffect (() => {
+        setBook(item)
+    }, [item])
+
     function envio(book) {
+        console.log(book)
         clean();
-        return insertion(book)
+        return action(book)
     }
 
     function clean() {
@@ -47,6 +51,23 @@ function Form({insertion}) {
 
     return (
         <div> 
+
+            <div className={`alert ${show}`}>
+                <span >  
+                 <CircleWavyCheck className='check' size={35} color="#c1ddaf" /> 
+                </span>
+                <span className='msg'> Livro cadastrado! </span>
+                <span> 
+                    <button
+                     onClick={() => setShow('hide')}
+                     className='close-btn'>
+                        <span> 
+                            <X className='close' size={20} color="#c1ddaf" />
+                        </span>
+                    </button>
+                </span>
+            </div>
+
             <form className='booksForm'>
                 <h3 className="formTitle"> Cadastre um livro </h3>
 
@@ -99,7 +120,10 @@ function Form({insertion}) {
 
                 <button 
                 className='buttonForm'
-                onClick={() => envio(book)}
+                onClick={() => {
+                    envio(book)
+                    setShow('show')
+                }}
                 type='button'>
                     Cadastrar
                 </button>
@@ -109,9 +133,4 @@ function Form({insertion}) {
 
 }
 
-const mapDispatchToProps = dispatch => 
-bindActionCreators (bookActions, dispatch)
-
-
-
-export default connect(null, mapDispatchToProps)(Form)
+export default (Form)

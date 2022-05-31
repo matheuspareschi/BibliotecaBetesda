@@ -7,7 +7,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const enhancer = applyMiddleware(sagaMiddleware);
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const reducers= rootReducer
 
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { CardBook } from './CardBook';
+import { CardBook } from '../Common/CardBook';
 
 import { PlusCircle } from 'phosphor-react';
 import './view.css'
 
 function View({books}){
     const history = useNavigate();
+    console.log(books.item.id)
 
     return (
         <div className='booksView'> 
@@ -28,6 +29,7 @@ function View({books}){
                             category = {book.category}
                             author = {book.author}
                             key={book.id}
+                            id={book.id}
                             img={book.img}
                         />
                     )
@@ -42,5 +44,6 @@ const mapStateToProps = state => {
     books: state.book
  }
 };
+
 
 export default connect(mapStateToProps, null)(View)
