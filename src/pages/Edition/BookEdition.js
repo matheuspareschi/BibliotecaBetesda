@@ -1,10 +1,12 @@
-import { bindActionCreators } from '@reduxjs/toolkit';
 import React from 'react';
-import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Form from '../Common/Form'
-import {CardBook} from '../Common/CardBook.js'
+
 import {Creators as bookActions} from '../../app/actions/bookActions';
+import { bindActionCreators } from '@reduxjs/toolkit';
+import { connect } from 'react-redux';
+
+import Form from '../../components/Common/BookForm/Form.js'
+import {CardBook} from '../../components/Common/CardBook/CardBook.js'
 
 const BookEdition = ({editBook, books}) => {
 
@@ -24,6 +26,7 @@ const BookEdition = ({editBook, books}) => {
                 author = {book.author}
                 key={book.id}
                 img={book.img}
+                quantity={book.quantity}
              />
             }
         </div>

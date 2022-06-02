@@ -2,11 +2,11 @@ import './App.css'
 
 import { BrowserRouter as Router, Routes as Switch, Route } from 'react-router-dom';
 
-import View from './components/Vizualization/View';
-import BookEdition from './components/Edition/BookEdition';
+import View from './pages/Vizualization/View';
+import BookEdition from './pages/Edition/BookEdition';
 import { Header } from './components/Header/header';
-import Registration from './components/Registration/Registration';
-import Err from './components/Err/Err';
+import Registration from './pages/Registration/Registration';
+import Err from './pages/Err/Err';
 
 
 function App() {

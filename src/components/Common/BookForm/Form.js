@@ -10,9 +10,10 @@ function Form({action, item = 0}) {
         author: '',
         category: '',
         description:'',
+        quantity: '',
     });
-    const [show, setShow] = useState('hide')
-
+    const [show, setShow] = useState('hide');
+ 
     function onChangeTitle(e) {
         setBook({...book, title: e.target.value});
     }
@@ -29,12 +30,15 @@ function Form({action, item = 0}) {
         setBook({...book, description: e.target.value});
     }  
 
+    function onChangeQuantity(e) {
+        setBook({...book, quantity: e.target.value})
+    }
+
     useEffect (() => {
-        setBook(item)
-    }, [item])
+        setBook(item);
+    }, [item]);
 
     function envio(book) {
-        console.log(book)
         clean();
         return action(book)
     }
@@ -56,7 +60,7 @@ function Form({action, item = 0}) {
                 <span >  
                  <CircleWavyCheck className='check' size={35} color="#c1ddaf" /> 
                 </span>
-                <span className='msg'> Livro cadastrado! </span>
+                <span className='msg'> Livro cadastrado... </span>
                 <span> 
                     <button
                      onClick={() => setShow('hide')}
@@ -115,6 +119,18 @@ function Form({action, item = 0}) {
                     value={book.description}
                     placeholder='Digite o titulo do livro' 
                     onChange={(e) => onChangeDescription(e)} 
+                    />
+                </ div>
+
+                <div className='inputDiv'>
+                    <p className='textForm'> Quantidade </p>
+                    <textarea 
+                    name="description"
+                    className='inputForm'
+                    type = "text"
+                    value={book.quantity}
+                    placeholder='Digite o titulo do livro' 
+                    onChange={(e) => onChangeQuantity(e)} 
                     />
                 </ div>
 

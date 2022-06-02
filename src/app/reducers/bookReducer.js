@@ -1,25 +1,28 @@
-import {Types} from '../actions/bookActions'
+import { Types } from '../actions/bookActions'
 import { nanoid } from 'nanoid';
-import { Books } from 'phosphor-react';
 
 const INITIAL_STATE = {
     item: []
 }
 
 export default function book(state = INITIAL_STATE, action) {
-    switch(action.type) {
+    switch (action.type) {
         case Types.INSERTION:
-        return {
-            ...state.item,
-            item: [
+            return {
                 ...state.item,
-            ]               
-        };
+                    item: [
+                        ...state.item,
+                    ]
+            };
         case Types.UPDATE_BOOK:
             return {
                 item: updateBook(state.item, action.book)
 
-        };  
+            };
+        case Types.DELETE_BOOK:
+            return {
+                item: deleteBook(state.item, action.book)
+            };
         case Types.GET_IMAGE_FAILURE:
         case Types.GET_IMAGE_SUCCESS:
             return {
@@ -28,23 +31,33 @@ export default function book(state = INITIAL_STATE, action) {
                     {
                         ...action.book,
                         id: nanoid(),
-                        img: action.img, 
+                        img: action.img,
                     }
                 ]
-            }    
-        
+            }
+
             default:
                 return state;
     }
 }
 
+
+// HELP FUNCTION
+
 function updateBook(item, book) {
     const index = item.findIndex(search => search.id === book.id);
-    console.log(index);
-    console.log(book.id);
     return [
         ...item.slice(0, index),
-        {...book},
+        {
+            ...book
+        },
         ...item.slice(index + 1),
+    ]
+}
+
+function deleteBook(item, book) {
+    console.log (book)
+    return [
+        ...item.filter(items => items.id !== book)
     ]
 }

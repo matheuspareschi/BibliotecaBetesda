@@ -1,0 +1,41 @@
+.formLoan {
+    display: flex;
+    flex-direction: column;
+    background-color:var(--background-primary-color) ;
+    width: 250px;
+    margin-top: 13.5rem;
+    padding: 1rem 0;
+    height: 50%;
+    margin-left: -0.5rem;
+}
+
+.iconLoan {
+    align-self: flex-end;
+    margin-right: -0.7rem;
+    margin-bottom: -1.7rem;
+    z-index: 1;
+
+}
+
+.inputLoanDiv {
+    display: flex;
+    flex-direction: column;
+    margin: 0.2rem;
+    font-size: 0.9rem;
+    padding: 0.2rem 0.5rem;
+}
+
+.buttonLoan {
+    opacity: 0.7;
+    border: none;
+    padding: 0.4rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    background-color: (--background-ternary-color)
+}
+
+.textLoan {
+    margin: 0.5rem;
+    font-size: 0.9rem;
+}

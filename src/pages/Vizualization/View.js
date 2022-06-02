@@ -1,15 +1,19 @@
 import React from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { CardBook } from '../Common/CardBook';
+import { Creators as bookActions } from '../../app/actions/bookActions';
+import { bindActionCreators } from '@reduxjs/toolkit';
+
+import { CardBook } from '../../components/Common/CardBook/CardBook';
 
 import { PlusCircle } from 'phosphor-react';
 import './view.css'
+import LoanBook from '../../components/Common/LoanBook/loanBook';
 
-function View({books}){
+function View({books, deleteBook}){
     const history = useNavigate();
-    console.log(books.item.id)
-
+    
     return (
         <div className='booksView'> 
 
@@ -19,7 +23,7 @@ function View({books}){
                 Adicione um livro!
                 <PlusCircle className='buttonAddIcon' size={56} color="#122108" />
             </button>
-
+            
             <div className='booksCard'>
                 {
                     books.item.map((book) => 
@@ -31,6 +35,8 @@ function View({books}){
                             key={book.id}
                             id={book.id}
                             img={book.img}
+                            quantity={book.quantity}
+                            deleteBook={deleteBook}
                         />
                     )
                 }
@@ -45,5 +51,9 @@ const mapStateToProps = state => {
  }
 };
 
+const mapDispatchToProps = dispatch => 
+bindActionCreators (bookActions, dispatch)
 
-export default connect(mapStateToProps, null)(View)
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(View)
